@@ -1,0 +1,100 @@
+@import url(http://fonts.googleapis.com/css?family=Special+Elite|Archivo+Narrow:400,700);
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:’’;content:none}
+ins{text-decoration:none}
+del{text-decoration:line-through}
+table{border-collapse:collapse;border-spacing:0}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Archivo Narrow', sans-serif;
+    color: #222;
+}
+
+.container {
+    max-width: 76.8rem;
+    margin: 2rem auto;
+}
+
+header {
+    border-bottom: 1px solid #222;
+    padding-bottom: 2rem;
+}
+
+h1 {
+    font-family: 'Special Elite', sans-serif;
+    font-size: 7.2rem;
+    background: transparent url(lego.png) no-repeat 0;
+    padding: 10px 0 0 85px;
+}
+
+h2 {
+    font-size: 3.2rem;
+    text-align: right;
+}
+
+a:link, a:visited {
+    color: #4169e1;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+dl {
+    padding: 2rem 0;
+}
+
+dt a:link, dt a:visited {
+    font-family: 'Special Elite', sans-serif;
+    text-decoration: none;
+    color: #4169e1;
+    font-size: 2.5rem;
+    display: inline-block;
+    line-height: 1.1;
+    border-bottom: 1px solid transparent;
+    margin-bottom: .5rem;
+}
+
+/*dt a:visited {
+    color: #ee82ee;
+}*/
+
+dt a:hover, dt a:active{
+    border-bottom: 1px solid #4169e1;
+}
+
+dd {
+    font-size: 2rem;
+}
+
+b {
+    text-transform: uppercase;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+}
+
+footer p {
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.attr {
+    margin-top: 1rem;
+    font-size: .6rem;
+}
