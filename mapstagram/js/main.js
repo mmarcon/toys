@@ -106,15 +106,35 @@
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
+    function parseColor(colorstring) {
+        var match;
+        colorstring = colorstring || '';
+        if((match = colorstring.match(/rgb\((.+)\s?,(.+)\s?,(.+)\s?\)/))) {
+            return {r: +match[1], g: +match[2], b :+match[3]};
+        }
+    }
+
     CanvasManager.prototype.tint = function(color, opacity){
         var self = this, ctx = self.context, canvas = self.canvas;
 
-        color = color || {r: 204, g: 0, b: 0};
+        color = parseColor(color) || {r: 204, g: 0, b: 0};
         opacity = opacity || 0.4;
 
         ctx.globalCompositeOperation = 'lighter';
         ctx.fillStyle = 'rgba(' + color.r + ',' + color.g + ',' + color.b + ',' + opacity + ')';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
+    };
+
+    CanvasManager.prototype.frame = function(color, width){
+        var self = this, ctx = self.context, canvas = self.canvas;
+
+        color = parseColor(color) || {r: 255, g: 255, b: 255};
+        width = width || 10;
+
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.strokeStyle = 'rgba(' + color.r + ',' + color.g + ',' + color.b + ',1)';
+        ctx.lineWidth = width;
+        ctx.strokeRect(0, 0, canvas.width, canvas.height);
     };
 
     CanvasManager.prototype.restore = function(){
@@ -176,16 +196,30 @@
 
     */
 
-    APP.init = function(){
+    APP.locationNotFound = function(){
+        alert('Could not determine your location');
+    };
+
+    APP.locationFound = function(p){
+        var coords = p.coords;
         var cm = APP.debugInfo.cm = new CanvasManager('canvas');
         cm.renderImage(buildTileURL({
-            lat: 52.5,
-            lon: 13.3,
+            lat: coords.latitude,
+            lon: coords.longitude,
             type: 1,
             width: 500,
             height: 500,
-            zoom: 14
+            zoom: 17
         }));
+    };
+
+    APP.init = function(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(APP.locationFound, APP.locationNotFound);
+        }
+        else {
+            APP.locationNotFound();
+        }
     };
 })(APP, document, window);
 
