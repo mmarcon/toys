@@ -8,6 +8,14 @@
         proxy: 'http://corsproxy.com/'
     };
 
+    //One should not touch the prototype... oh well.
+    Array.prototype.randomElement = Array.prototype.randomElement || function(){
+        return this[Math.floor(Math.random()*this.length)];
+    };
+    Array.prototype.shuffle = Array.prototype.shuffle || function(){
+        for(var j, x, i = this.length; i; j = Math.floor(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
+    };
+
     var CanvasManager = function(selector){
         this.canvas = d.querySelector(selector);
         this.context = this.canvas.getContext('2d');
@@ -141,8 +149,20 @@
         this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
     };
 
+    CanvasManager.prototype.clear = function(){
+        this.canvas.width = this.canvas.width;
+    };
+
     CanvasManager.prototype.save = function(){
         window.open(this.canvas.toDataURL("image/png"), 'Map');
+    };
+
+    CanvasManager.prototype.mapstagram = function(){
+        this.sepia();
+        this.tint(null, 0.1);
+        this.vignette();
+        this.vignette();
+        // this.frame('rgb(17,17,17)', 20);
     };
 
     function buildTileURL(options) {
@@ -211,6 +231,26 @@
             height: 500,
             zoom: 17
         }));
+
+        d.querySelector('.controls').addEventListener('click', function(e){
+            var cl = e.target.classList;
+            if (cl.contains('mapstagram')) {
+                cm.mapstagram();
+            } else if (cl.contains('position')) {
+                cm.clear();
+                APP.Cities.shuffle();
+                var city = APP.Cities.randomElement(),
+                    zoom = Math.max(~~(Math.random() * 18), 8);
+                cm.renderImage(buildTileURL({
+                    lat: city.lat,
+                    lon: city.lon,
+                    type: 1,
+                    width: 500,
+                    height: 500,
+                    zoom: zoom
+                }));
+            }
+        });
     };
 
     APP.init = function(){
