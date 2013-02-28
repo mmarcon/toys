@@ -1,4 +1,4 @@
-#template
+#mapstagram
 
 ## URL: [http://toys.marcon.me/mapstagram](http://toys.marcon.me/mapstagram)
 
