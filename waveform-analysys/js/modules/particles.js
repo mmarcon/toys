@@ -29,13 +29,22 @@
             x: Math.round(t * this.canvas.width / this.duration),
             y: this.canvas.height,
             up: true
-        };
+        }, colorup, colordown;
 
         p.vx = 0;
         p.vup = Math.round((values[0] + values[1]) / 30);
         p.vdown = Math.round((values[0] + values[1]) / 10);
 
-        p.color = Math.random() > 0.5 ? 'rgba(53,121,195,0.9)' : 'rgba(255,70,0,0.9)';
+        if(Math.random() > 0.5) {
+            colorup = [53,121,195];
+            colordown = [21, 48, 77];
+        } else {
+            colorup = [255,70,0];
+            colordown = [77, 20, 0];
+        }
+
+        p.colorup = 'rgba(' + colorup.join(',') + ',0.9)';
+        p.colordown = 'rgba(' + colordown.join(',') + ',0.6)';
         p.radius = 5;
 
         this.particles.push(p);
@@ -57,7 +66,7 @@
             p = particles[i];
 
             ctx.beginPath();
-            ctx.fillStyle = p.color;
+            ctx.fillStyle = p.up ? p.colorup : p.colordown;
             ctx.arc(p.x, p.y, p.radius, Math.PI*2, false);
             ctx.fill();
 
