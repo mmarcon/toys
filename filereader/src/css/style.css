@@ -1,0 +1,16 @@
+body {
+    background: #fff;
+}
+
+canvas {
+    border: 1px solid #ddd;
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    display: block;
+}
+
+form {
+    width: 400px;
+    margin: 10px auto;
+}
