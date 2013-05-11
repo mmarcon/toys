@@ -1,0 +1,9 @@
+{
+  "name": "wikigeo",
+  "version": "0.0.0",
+  "commit": "48d9c05b86c12c1d85f29220df04a0e361dc0547",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/edsu/wikigeo.git"
+  }
+}
