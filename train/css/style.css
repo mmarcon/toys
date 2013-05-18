@@ -3,6 +3,8 @@ body {
     overflow: hidden;
     font-family: monospace;
     -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
 }
 
 .controls li {
@@ -23,10 +25,26 @@ button {
     -webkit-animation-iteration-count: 1;
     -webkit-animation-direction: normal;
     -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-duration: 30s;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-delay: 0s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+    -moz-animation-fill-mode: forwards;
+
+    animation-duration: 30s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
 }
 
 .ghost {
     -webkit-animation-duration: 22s;
+    -moz-animation-duration: 22s;
+    animation-duration: 22s;
 }
 
 /*.realtime .scroll, .realtime .train {
@@ -37,10 +55,20 @@ button {
     -webkit-transform-style: preserve-3d;
     -webkit-transform-origin: 60% 0;
     -webkit-transition: all 22s;
+
+    -moz-transform-style: preserve-3d;
+    -moz-transform-origin: 60% 0;
+    -moz-transition: all 22s;
+
+    transform-style: preserve-3d;
+    transform-origin: 60% 0;
+    transition: all 22s;
 }
 
 .go .stage {
     -webkit-transform: rotateY(55deg);
+    -moz-transform: rotateY(55deg);
+    transform: rotateY(55deg);
 }
 
 .scroll {
@@ -81,6 +109,8 @@ button {
 
 .go .scroll {
     -webkit-animation-name: scroll;
+    -moz-animation-name: scroll;
+    animation-name: scroll;
 }
 
 .rail {
@@ -120,10 +150,14 @@ button {
 
 .go .train {
     -webkit-animation-name: train;
+    -moz-animation-name: train;
+    animation-name: train;
 }
 
 .go .ghost {
     -webkit-animation-name: ghost;
+    -moz-animation-name: ghost;
+    animation-name: ghost;
 }
 
 .c0, .c1, .c2 {
@@ -144,51 +178,24 @@ button {
 }
 
 @-webkit-keyframes train {0% {left:-95px} 47% {left:1322px} 66% {left:1984px} 73% {left:2362px} 88% {left:3086px} 100% {left:3905px}}
+@-moz-keyframes train {0% {left:-95px} 47% {left:1322px} 66% {left:1984px} 73% {left:2362px} 88% {left:3086px} 100% {left:3905px}}
+@keyframes train {0% {left:-95px} 47% {left:1322px} 66% {left:1984px} 73% {left:2362px} 88% {left:3086px} 100% {left:3905px}}
+
 @-webkit-keyframes ghost {0% {left:-95px} 27% {left:1322px} 49% {left:1984px} 60% {left:2362px} 80% {left:3086px} 100% {left:3905px}}
+@-moz-keyframes ghost {0% {left:-95px} 27% {left:1322px} 49% {left:1984px} 60% {left:2362px} 80% {left:3086px} 100% {left:3905px}}
+@keyframes ghost {0% {left:-95px} 27% {left:1322px} 49% {left:1984px} 60% {left:2362px} 80% {left:3086px} 100% {left:3905px}}
 
 @-webkit-keyframes scroll {
     0% {left:117px}
     100% {left: -3600px}
 }
 
-.speed {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    width: 80px;
-    height: 40px;
-    float: right;
-    color: #333;
-    overflow: hidden;
+@-moz-keyframes scroll {
+    0% {left:117px}
+    100% {left: -3600px}
 }
 
-.speed li {
-    width: 80px;
-    font-size: 18px;
-    line-height: 40px;
-    height: 40px;
-}
-
-.speed ul {
-    position: relative;
-    top: 40px;
-}
-
-.go .speed ul {
-    -webkit-animation-name: speed;
-    -webkit-animation-duration: 10s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-delay: 0s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-direction: normal;
-    -webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes speed {
-    0% {top: 0}
-    47% {top: -40px}
-    66% {top: -80px}
-    73% {top: -120px}
-    88% {top: -160px}
-    100% {top: -200px}
+@keyframes scroll {
+    0% {left:117px}
+    100% {left: -3600px}
 }
