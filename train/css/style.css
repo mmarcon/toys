@@ -1,0 +1,187 @@
+body {
+    background: #999;
+    overflow: hidden;
+    font-family: monospace;
+}
+
+.controls li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+button {
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.scroll, .train, .ghost {
+    -webkit-animation-duration: 30s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.ghost {
+    -webkit-animation-duration: 22s;
+}
+
+/*.realtime .scroll, .realtime .train {
+    -webkit-animation-duration: 8760s;
+    }*/
+
+/*.stage {
+    height: 390px;
+    position: relative;
+    }*/
+
+.scroll {
+    position: absolute;
+    top: 200px;
+    left: 110px;
+}
+
+.station {
+    position: absolute;
+    left: -120px;
+    height: 20px;
+    bottom: -1px;
+    background: #666;
+    width: 100px;
+    z-index: 10;
+}
+
+.stations {
+    position: absolute;
+    height: 10px;
+    left: 0;
+    right: 0;
+}
+
+.stations li {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    background: #333;
+    bottom: -1px;
+    line-height: 2.5;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.go .scroll {
+    -webkit-animation-name: scroll;
+}
+
+.rail {
+    width: 4010px;
+    height: 10px;
+    background: transparent;
+    border-bottom: 1px dashed #333;
+    overflow: visible;
+}
+
+.start, .end {
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+}
+
+.start {
+    left: 0;
+}
+
+.end {
+    right: 0;
+}
+
+.train, .ghost {
+    position: absolute;
+    top: 1px;
+    left: -90px;
+}
+
+.ghost {
+    opacity: .4;
+}
+
+.go .train {
+    -webkit-animation-name: train;
+}
+
+.go .ghost {
+    -webkit-animation-name: ghost;
+}
+
+.c0, .c1, .c2 {
+    position: absolute;
+    width: 30px;
+    border-radius: 2px;
+    border-bottom: 2px solid #cc0000;
+    height: 5px;
+    background: #fff;
+}
+
+.c1 {
+    left: 31px;
+}
+
+.c2 {
+    left: 62px;
+}
+
+@-webkit-keyframes train {0% {left:-95px} 47% {left:1322px} 66% {left:1984px} 73% {left:2362px} 88% {left:3086px} 100% {left:3905px}}
+@-webkit-keyframes ghost {0% {left:-95px} 27% {left:1322px} 49% {left:1984px} 60% {left:2362px} 80% {left:3086px} 100% {left:3905px}}
+
+@-webkit-keyframes scroll {
+    0% {left:117px}
+    100% {left: -3600px}
+}
+
+.speed {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    width: 80px;
+    height: 40px;
+    float: right;
+    color: #333;
+    overflow: hidden;
+}
+
+.speed li {
+    width: 80px;
+    font-size: 18px;
+    line-height: 40px;
+    height: 40px;
+}
+
+.speed ul {
+    position: relative;
+    top: 40px;
+}
+
+.go .speed ul {
+    -webkit-animation-name: speed;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes speed {
+    0% {top: 0}
+    47% {top: -40px}
+    66% {top: -80px}
+    73% {top: -120px}
+    88% {top: -160px}
+    100% {top: -200px}
+}
