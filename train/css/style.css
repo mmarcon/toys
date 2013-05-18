@@ -2,6 +2,7 @@ body {
     background: #999;
     overflow: hidden;
     font-family: monospace;
+    -webkit-perspective: 1000px;
 }
 
 .controls li {
@@ -32,10 +33,15 @@ button {
     -webkit-animation-duration: 8760s;
     }*/
 
-/*.stage {
-    height: 390px;
-    position: relative;
-    }*/
+.stage {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: 60% 0;
+    -webkit-transition: all 22s;
+}
+
+.go .stage {
+    -webkit-transform: rotateY(55deg);
+}
 
 .scroll {
     position: absolute;
@@ -70,6 +76,7 @@ button {
     line-height: 2.5;
     color: #333;
     text-transform: capitalize;
+    border-radius: 2px;
 }
 
 .go .scroll {

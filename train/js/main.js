@@ -27,7 +27,7 @@
         });
 
 
-        var css = {}, ghostCss = {}, dSemi = 0, aSemi = 0, pSemi = 0, li, speedLi;
+        var css = {}, ghostCss = {}, dSemi = 0, aSemi = 0, pSemi = 0, li, speedLi, rot = 0;
         cData.forEach(function(step, idx){
             var key, px;
             dSemi += step[3];
@@ -43,7 +43,10 @@
 
             li = doc.createElement('li');
             li.style.left = (px + 3) + 'px';
+            li.style['-webkit-transform'] = 'rotateY(' + rot + 'deg)';
             li.innerHTML = step[0];
+
+            rot-=5;
 
             $('.stations')[0].appendChild(li);
 
